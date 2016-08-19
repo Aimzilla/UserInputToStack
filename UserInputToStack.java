@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -12,22 +11,20 @@ public class UserInputToStack {
 		System.out.println("Please enter your math formula: ");
 		number = scan1.nextLine();
 
-		// push userinput(number) into a string array list
+		// push user input(number) into a stack array
 		Stack<Integer> stack = new Stack<Integer>();
 
-		// cycle through the new string to determine if each character is an
-		// number or not
+		// cycle through the new array to determine if each character is a number or not
 		for (int i = 0; i < number.length(); i++) {
 			char ch = number.charAt(i);
 			int transferInt = Character.getNumericValue(ch);
 
-			if (Character.isDigit(ch)) {// i = operator, then
+			if (Character.isDigit(ch)) {// i = a number, then push to stack
 				stack.push(transferInt);
 
 			} else {// if i is an operator, pop the 2 prior numbers and apply
 					// the operator to them
 					// need to pop 2 times to get both of the numbers
-					// convert char to int & puch
 				int a = stack.pop(); // apply operator
 				int b = stack.pop();
 
